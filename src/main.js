@@ -27,12 +27,11 @@ var Coquette = function(game, canvasId, width, height, backgroundColor, autoFocu
   });
 };
 
-module.exports = {
-  Renderer: Renderer,
-  Inputter: Inputter,
-  Entities: Entities,
-  Runner: Runner,
-  Collider: Collider,
-  Ticker: Ticker,
-  Coquette: Coquette,
-};
+Coquette.Renderer = Renderer;
+Coquette.Inputter = Inputter;
+Coquette.Entities = Entities;
+Coquette.Runner = Runner;
+Coquette.Collider = Collider;
+Coquette.Ticker = Ticker;
+
+module.exports = Coquette;
