@@ -1,5 +1,5 @@
-var Entities = require('../src/entities').Entities;
-var Collider = require('../src/collider').Collider;
+var Entities = require('../src/entities');
+var Collider = require('../src/collider');
 
 var MockCoquette = function() {
   this.game = "woo";

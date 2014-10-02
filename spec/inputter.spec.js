@@ -1,4 +1,4 @@
-var Inputter = require('../src/inputter').Inputter;
+var Inputter = require('../src/inputter');
 
 var InputReceiver = function() {
   var callbacks = {};

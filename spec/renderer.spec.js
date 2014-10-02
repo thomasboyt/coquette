@@ -1,7 +1,7 @@
-var Renderer = require('../src/renderer').Renderer;
-var Collider = require('../src/collider').Collider;
-var Entities = require('../src/entities').Entities;
-var Runner = require('../src/runner').Runner;
+var Renderer = require('../src/renderer');
+var Collider = require('../src/collider');
+var Entities = require('../src/entities');
+var Runner = require('../src/runner');
 
 var MockContext = function() {
   this.translate = function() {};

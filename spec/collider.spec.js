@@ -1,6 +1,6 @@
-var Collider = require('../src/collider').Collider;
-var Renderer = require('../src/renderer').Renderer;
-var Entities = require('../src/entities').Entities;
+var Collider = require('../src/collider');
+var Renderer = require('../src/renderer');
+var Entities = require('../src/entities');
 var Maths = Collider.Maths;
 
 var mockObj = function(centerX, centerY, sizeX, sizeY, boundingBox, angle) {
