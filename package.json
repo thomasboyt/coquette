@@ -10,11 +10,13 @@
   },
   "scripts": {
     "test": "node_modules/jasmine-node/bin/jasmine-node spec/",
-    "minify": "node scripts/minifier.js",
-    "prepublish": "node scripts/minifier.js"
+    "bundle": "node_modules/.bin/browserify src/main.js --standalone Coquette > coquette.js",
+    "minify": "node_modules/.bin/uglifyjs coquette.js > coquette-min.js",
+    "prepublish": "npm run-script bundle && npm run-script minify"
   },
   "devDependencies": {
-    "node.packer": "2.0.0",
-    "jasmine-node": "1.7.1"
+    "browserify": "^5.12.1",
+    "jasmine-node": "1.7.1",
+    "uglify-js": "^2.4.15"
   }
 }
