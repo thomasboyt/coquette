@@ -9,9 +9,9 @@ function Ticker(coquette, gameLoop) {
   };
 
   this.start = function() {
-    var prev = new Date().getTime();
+    var prev = Date.now();
     var tick = function() {
-      var now = new Date().getTime();
+      var now = Date.now();
       var interval = now - prev;
       prev = now;
       gameLoop(interval);
@@ -38,7 +38,7 @@ var setupRequestAnimationFrame = function() {
 
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = function(callback, element) {
-      var currTime = new Date().getTime();
+      var currTime = Date.now();
       var timeToCall = Math.max(0, interval - (currTime - lastTime));
       var id = window.setTimeout(function() { callback(currTime + timeToCall); },
                                  timeToCall);

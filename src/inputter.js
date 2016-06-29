@@ -192,10 +192,9 @@ var MouseMoveListener = function(canvas) {
   this._mousePosition;
   var self = this;
 
-  var elementPosition = { x: canvas.offsetLeft, y: canvas.offsetTop };
-
   canvas.addEventListener('mousemove', function(e) {
     var absoluteMousePosition = self._getAbsoluteMousePosition(e);
+      var elementPosition = getElementPosition(canvas);
     self._mousePosition = {
       x: absoluteMousePosition.x - elementPosition.x,
       y: absoluteMousePosition.y - elementPosition.y
@@ -236,6 +235,21 @@ MouseMoveListener.prototype = {
       return { x: e.clientX, y: e.clientY };
     }
   }
+};
+
+var getWindow = function(document) {
+  return document.parentWindow || document.defaultView;
+};
+
+var getElementPosition = function(element) {
+  var rect = element.getBoundingClientRect();
+  var document = element.ownerDocument;
+  var body = document.body;
+  var window = getWindow(document);
+  return {
+    x: rect.left + (window.pageXOffset || body.scrollLeft) - (body.clientLeft || 0),
+    y: rect.top + (window.pageYOffset || body.scrollTop) - (body.clientTop || 0)
+  };
 };
 
 var connectReceiverToKeyboard = function(keyboardReceiver, window, autoFocus) {

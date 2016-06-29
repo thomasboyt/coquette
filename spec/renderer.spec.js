@@ -6,6 +6,7 @@ var Runner = require('../src/runner');
 var MockContext = function() {
   this.translate = function() {};
   this.fillRect = function() {};
+  this.clearRect = function() {};
   this.save = function() {};
   this.restore = function() {}
 };
@@ -148,7 +149,7 @@ describe('entities', function() {
         coquette.entities.create(Entity, { angle: 0, center: { x: 0, y: 0 }, draw: function() {} });
         coquette.runner.update();
         coquette.renderer.update();
-      }).toThrow("Object [object Object] has no method 'rotate'")
+      }).toThrow("ctx.rotate is not a function")
 
       var coquette = new MockCoquette();
       coquette.entities.create(Entity, { angle: 0, draw: function() {} });
